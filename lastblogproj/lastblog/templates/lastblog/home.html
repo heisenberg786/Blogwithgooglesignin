@@ -1,0 +1,33 @@
+{% extends 'lastblog/base.html' %}
+{% block body_block %}
+
+<div class="container">
+
+
+
+
+  <h1 class="list">List of Posts</h1>
+
+
+{% for posts in post %}
+        <div class="blog-post">
+               <h2 class="blog-post-title">{{posts.title}}</h2>
+               <p class="blog-post-meta">{{posts.date_created}}<strong> By  {{posts.author}}</strong></p>
+               <div id="content">
+
+
+               <p>{{posts.content|safe|linebreaks}}<a href="#"></a></p>
+                </div>
+
+<a class="readmore" href="{% url 'postdetail' posts.id %}"><input type="submit" class="btn btn-primary" value="Read More"></input></a>
+  {% if posts.author == user %}
+
+
+    <a class="success" href="{% url 'postupdate' posts.id %}"><input type="submit" class="btn btn-success" value="UpdatePost"></input></a>
+    <a class="danger" href="{% url 'postdelete' posts.id %}"><input type="submit" class="btn btn-danger" value="DeletePost"></input></a>
+  {% endif %}
+  {% endfor %}
+</div>
+</div>
+
+      {% endblock %}

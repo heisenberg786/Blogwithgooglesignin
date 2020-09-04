@@ -1,0 +1,13 @@
+{% extends 'lastblog/base.html' %}
+{% block body_block %}
+
+<div class="container">
+
+<article class="detail">
+
+
+      <h1 class="author">Author:{{object.author}}</h1>
+      <p>{{object.content|safe|linebreaks}}</p>
+    </article>
+
+{% endblock %}

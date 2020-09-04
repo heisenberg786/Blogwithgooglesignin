@@ -1,0 +1,35 @@
+{% extends 'lastblog/base.html' %}
+{% block body_block %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+  <div class="google">
+
+
+  <a  href="{% provider_login_url "google" %}" class="btn btn-block btn-social btn-google" style="background-color:#3b5998;text-align:center">
+
+                 <span style="color:white">Sign in with</span>
+                 <br>
+                 <span style="color:#4285F4">G</span>
+                 <span style="color:#DB4437">O</span>
+                 <span style="color:#F4B400">O</span>
+                 <span style="color:#4285F4">G</span>
+                 <span style="color:#0F9D58">L</span>
+                 <span style="color:#DB4437">E</span>
+
+   </a>
+     </div>
+  <form  method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+<input type="submit" class="btn btn-dark" value="Register">
+  </form>
+  <br>
+
+   <br>
+
+    <h1></h1>
+<!-- <a href="{% provider_login_url 'google' %}">Login with Google</a> -->
+  </div>
+{% endblock %}

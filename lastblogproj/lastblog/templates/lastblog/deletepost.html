@@ -1,0 +1,16 @@
+{% extends 'lastblog/base.html' %}
+{% block body_block %}
+
+<div class="container">
+  <form method="post">
+
+  {% csrf_token %}
+  <h1>Wanna Delete This Post? {{object.title}}</h1>
+
+
+  <a href="{% url 'postdelete' object.id %}"><input type="submit" class="btn btn-dark" value="DeletePost"></input></a>
+  <a href="{% url 'home' %}"><input type="submit" class="btn btn-dark" value="Cancle"></input></a>
+  </form>
+
+</div>
+{% endblock %}
